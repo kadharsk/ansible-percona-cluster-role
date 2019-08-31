@@ -1,0 +1,40 @@
+---
+# vars file for mysqz
+
+# Percona software repository
+percona_package: https://repo.percona.com/apt/percona-release_0.1-4.xenial_all.deb
+percona_dpkg: percona-release_0.1-4.xenial_all
+percona_dest: /tmp
+
+# percona_xtradb_clusterr
+percona_xtradb_cluster: percona-xtradb-cluster-full-57 
+qpress: qpress
+
+# mysql related varaibles
+mysql_user_sst: sstuser
+mysql_password_sst: pass
+host_pvt_ip: 172.31.23.175
+
+xtradb_root_user: root
+xtradb_root_password: root  
+xtradb_sst_user: sstuser
+xtradb_sst_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          32386534653738306265623565323561393734393466393366386334363133383237376262633233
+          6635386631373062373438343739386462343032613361320a393430613832313735333730623666
+          33323237663964616561633936303166313438613661373765366339326438363732396536333634
+          3565393736323463650a383330333734396632333530623933353030663037643766333638326163
+          3132
+
+xtradb_confdir: /etc/mysql/percona-xtradb-cluster.conf.d
+xtradb_node1_config_file: wsrep.cnf
+xtradb_node2_config_file: wsrep.cnf
+xtradb_config_path: /etc/mysql/percona-xtradb-cluster.conf.d/wsrep.cnf
+
+xtradb_node1_name: node1
+xtradb_node2_name: node2
+xtradb_cluster_name: mycluster
+xtradb_node1_ip: 172.31.13.18
+xtradb_node2_ip: 172.31.13.254
+
+xtradb_mysql_pass: /var/run/mysqld/mysqld.sock
